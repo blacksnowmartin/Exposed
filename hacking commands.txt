@@ -17,4 +17,6 @@ hping3 -S -V --flood 172.18.8.9
 hping3 --traceroute -V -1 tukenya.ac.ke
 -1 for ICMP packets
 hping3 --traceroute -V -p 80 -S tukenya.ac.ke
--p 80 port 80  
+-p 80 port 80 
+
+Search 60 hacking commands in YouTube for better understanding.
