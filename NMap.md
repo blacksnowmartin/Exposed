@@ -1,3 +1,5 @@
+# Master NMap
+## By Martin Kitonga
 No.
 Category
 Description
@@ -25,43 +27,43 @@ Evaluation of accessible services.
 dos
 These scripts are used to check services for denial of service vulnerabilities and are used less as it harms the services.
 
+7
 exploit
-
 This category of scripts tries to exploit known vulnerabilities for the scanned port.
 
+8
 external
-
 Scripts that use external services for further processing.
 
+9
 fuzzer
-
 This uses scripts to identify vulnerabilities and unexpected packet handling by sending different fields, which can take much time.
 
+10
 intrusive
-
 Intrusive scripts that could negatively affect the target system.
 
+11
 malware
-
 Checks if some malware infects the target system.
 
+13
 safe
-
 Defensive scripts that do not perform intrusive and destructive access.
 
+14
 version
-
 Extension for service detection.
 
+15
 vuln
-
 Identification of specific vulnerabilities.
 
 Some useful NSE examples that you may use in your scans include:
 
-Nmap command
+## Nmap command
 
-Description
+### Description
 
 nmap -Pn -script=http-sitemap-generator scanme.nmap.org
 
