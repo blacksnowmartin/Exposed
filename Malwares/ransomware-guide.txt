@@ -1,0 +1,13 @@
+The script imports necessary modules: os for file operations, smtplib for sending emails, EmailMessage for email content, and Fernet from cryptography for encryption.
+
+The encrypt_file function reads a file, encrypts its content using the provided key, and writes back the encrypted data to the file.
+
+A new encryption key is generated using Fernet.generate_key().
+
+Files in the target directory (C:/Users/User/Documents in this case) are encrypted using the generated key.
+
+An email message is created with the host details (computer name) and the decryption key.
+
+The email is sent to martinmwendwa005@gmail.com from your_email@gmail.com with the subject "Ransomware Attack".
+
+The script uses a Gmail SMTP server to send the email. Make sure to replace 'your_email@gmail.com' and 'your_password' with your actual Gmail credentials.
