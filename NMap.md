@@ -1,5 +1,5 @@
-# Master NMap
-## By Martin Kitonga
+# Master NMap effortlessly
+
 No.
 Category
 
@@ -99,3 +99,7 @@ Detect cross site scripting vulnerabilities.
 nmap -p80 -script http-sql-injection scanme.nmap.org
 
 Detect cross site scripting vulnerabilities.
+
+Reviewed and edited by:
+
+### Martin Kitonga 
