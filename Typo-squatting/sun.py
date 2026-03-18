@@ -1,8 +1,8 @@
 from turtle import *
 
-speed(0.0025)
+speed(0)
 bgcolor("black")
-colors = ['orange', 'white']
+colors = ['gold', 'white']
 hideturtle()
 
 for i in range(122):
