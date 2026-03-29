@@ -35,3 +35,4 @@ def main():
 if __name__ == "__main__":
     main()
 
+# Dont forget to install the required library with: pip install pynput
