@@ -121,10 +121,3 @@ sudo systemctl restart systemd-networkd
 * Technical note: `78:60:5b:95:26:29` has its “locally administered” bit unset (it appears globally-assigned). Many people use a locally-administered MAC (set the second-least-significant bit of the first octet) for privacy; networks generally don’t care but some do. If you want a locally-administered address instead I can show how to generate one.
 
 ---
-
-If you tell me:
-
-* your interface name (output of `ip link`), and
-* whether you want the change temporary or persistent (NetworkManager or systemd),
-
-I’ll give you the exact commands ready to paste.
