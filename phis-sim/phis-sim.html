@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Phishing Awareness Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 900px;
+            margin: 32px auto;
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 16px 30px rgba(20, 38, 75, 0.12);
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 2rem;
+        }
+        .panel {
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+            margin-bottom: 20px;
+        }
+        .email-preview {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 12px;
+        }
+        .email-preview h2 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+            color: #111827;
+        }
+        .email-preview p {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        .actions button,
+        .actions input[type="button"] {
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 18px;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+        .actions button {
+            background: #2563eb;
+            color: #fff;
+        }
+        .actions input[type="button"] {
+            background: #e11d48;
+            color: #fff;
+        }
+        .result {
+            margin-top: 16px;
+            padding: 16px;
+            border-radius: 10px;
+            background: #eef2ff;
+            border: 1px solid #c7d2fe;
+            display: none;
+        }
+        .result.alert {
+            background: #fee2e2;
+            border-color: #fecaca;
+        }
+        .result.success {
+            background: #dcfce7;
+            border-color: #bbf7d0;
+        }
+        .hint {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            padding: 14px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Phishing Attack Awareness Simulator</h1>
+        <p>
+            This page helps you recognize a phishing email by letting you inspect a simulated message,
+            identify red flags, and decide whether to report it.
+        </p>
+
+        <div class="panel">
+            <strong>Instructions:</strong>
+            <ul>
+                <li>Read the simulated email carefully.</li>
+                <li>Click "Inspect email" to see the message details.</li>
+                <li>Choose whether to "Report as phishing" or "Ignore / Mark safe".</li>
+                <li>Review the warning message to learn the important signs.</li>
+            </ul>
+        </div>
+
+        <div class="email-preview">
+            <h2>From: support@secure-bank-alerts.com</h2>
+            <p><strong>Subject:</strong> Urgent: Verify your account now</p>
+            <p>Dear customer,</p>
+            <p>
+                We detected unauthorized access to your account. Click the link below to verify your identity and restore access immediately.
+            </p>
+            <p><a id="phishing-link" href="#">Verify your account</a></p>
+            <p>Please respond within 24 hours or your account will be suspended.</p>
+            <p>Thank you,<br/>Secure Bank Alerts Team</p>
+        </div>
+
+        <div class="actions">
+            <button id="inspectBtn" type="button">Inspect email</button>
+            <input id="reportBtn" type="button" value="Report as phishing" />
+            <input id="safeBtn" type="button" value="Ignore / Mark safe" />
+        </div>
+
+        <div id="result" class="result"></div>
+
+        <div class="hint">
+            <strong>Phishing red flags:</strong>
+            <ul>
+                <li>Sender address does not match the official bank domain.</li>
+                <li>Urgent language designed to create panic.</li>
+                <li>Generic greeting like "Dear customer".</li>
+                <li>Links that do not clearly show the real destination.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var inspectBtn = document.getElementById('inspectBtn');
+        var reportBtn = document.getElementById('reportBtn');
+        var safeBtn = document.getElementById('safeBtn');
+        var result = document.getElementById('result');
+        var phishingLink = document.getElementById('phishing-link');
+
+        phishingLink.addEventListener('click', function (event) {
+            event.preventDefault();
+            result.style.display = 'block';
+            result.className = 'result alert';
+            result.textContent = 'Warning: this link points to an unknown URL. Avoid clicking suspicious links in email.';
+        });
+
+        inspectBtn.addEventListener('click', function () {
+            result.style.display = 'block';
+            result.className = 'result';
+            result.innerHTML =
+                '<strong>Inspecting email:</strong> The sender address and link are suspicious. The message uses urgency, a generic greeting, and a fake domain. This is likely a phishing attack.';
+        });
+
+        reportBtn.addEventListener('click', function () {
+            result.style.display = 'block';
+            result.className = 'result success';
+            result.innerHTML =
+                '<strong>Good choice:</strong> You reported the email as phishing. Always report suspicious messages to your security team or email provider.';
+        });
+
+        safeBtn.addEventListener('click', function () {
+            result.style.display = 'block';
+            result.className = 'result alert';
+            result.innerHTML =
+                '<strong>Incorrect:</strong> This email contains multiple phishing indicators. Do not ignore suspicious emails. Verify the sender and report if unsure.';
+        });
+    </script>
+</body>
+</html>
