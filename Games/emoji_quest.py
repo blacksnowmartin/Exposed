@@ -10,8 +10,8 @@ WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("🌟 Emoji Quest - Advanced Emoji Adventure")
 clock = pygame.time.Clock()
-font = pygame.font.SysFont("Arial", 24)
-big_font = pygame.font.SysFont("Arial", 48)
+font = pygame.font.SysFont("Arial", 48)
+big_font = pygame.font.SysFont("Arial", 72)
 
 # Unique emojis from emojidb.org style + standard ones
 EMOJIS = [
@@ -101,7 +101,7 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == pygame.KEYDOWN:
+            if event.type == paygame.KEYDOWN:
                 if event.key == pygame.K_p:
                     paused = not paused
                 if event.key == pygame.K_r and game_over:
