@@ -8,7 +8,7 @@ from collections import deque
 pygame.init()
 WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("🌟 Emoji Quest - Advanced Emoji Adventure")
+pygame.display.set_caption("� Emoji Galaxy Rush")
 clock = pygame.time.Clock()
 font = pygame.font.SysFont("Arial", 48)
 big_font = pygame.font.SysFont("Arial", 72)
@@ -101,7 +101,7 @@ def main():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            if event.type == paygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:
                     paused = not paused
                 if event.key == pygame.K_r and game_over:
