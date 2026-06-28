@@ -28,6 +28,7 @@ NEON_MAGENTA = "#FF00FF"
 NEON_PURPLE = "#9D00FF"
 NEON_ORANGE = "#FF6600"
 NEON_RED = "#FF0033"
+NEON_YELLOW = "#FFFF00"
 
 class Player:
     def __init__(self):
@@ -190,7 +191,12 @@ class Game:
             return False
 
         console.print(f"\n[{NEON_CYAN}]Activating {tool_name}...[/]")
-        if tool_name == "signal_scrambler":
+        if tool_name == "basic_shell":
+            self.player.skills["stealth"] += 1
+            self.player.reduce_detection(10)
+            self.player.restore_cpu(10)
+            console.print(f"[{NEON_GREEN}]Basic shell stabilized. Stealth improved and detection reduced.[/]")
+        elif tool_name == "signal_scrambler":
             self.player.reduce_detection(20)
             console.print(f"[{NEON_GREEN}]Signal noise increased. Detection risk lowered.[/]")
         elif tool_name == "bandwidth_booster":
